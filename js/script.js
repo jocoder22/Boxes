@@ -18,8 +18,35 @@ $(function(){
   $(".blueBox").fadeIn(2000);
   $(".greenBox").fadeIn(2600);
 
+  $(".blueBox").toggle();
+
+  $(".box1").hide(1000);
+
+  setTimeout(function(){
+    $(".box2").css("width", "100%");
+  }, 800);
+
+  $(".blueBox3").hide(2000);
+
+  $("#SlideUp").slideUp(1000);
+
+  setTimeout(function(){
+    $("#SlideUp").slideDown(1000);
+  }, 2000);
 
 
+  $(".blueBox3").slideToggle();
+});
 
 
+$(function () {
+  $("#Moving").animate({
+    "margin-left" : "+=550px"
+  }, 1000, "linear");
+});
+
+$(function () {
+  $("#Moving").animate({
+    "margin-left" : "-=550px"
+  }, 1000, "linear");
 });
