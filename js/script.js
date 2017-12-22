@@ -46,5 +46,22 @@ $(function () {
     "height" : "50px",
     marginTop : "75px",
     weight : ""
-  }, 1000, "linear");
+  }, 10000, "linear");
+
+  $("p").animate({
+    fontSize: "-=20px"
+  }, 1000);
+  $("#lne").css("font-size", "0px");
+});
+
+
+$(function () {
+  $("#b1").fadeTo(2000, 0.4, function (){
+    $("#b2").fadeTo(2000, 0.5);
+    $("#r1").fadeTo(2000, 0.5, function(){
+      $("#b2").delay(6000).fadeTo(2000, 0.8).fadeOut().delay(2000).fadeIn();
+    });
+  });
+  $("#r1").delay(2000).fadeTo(2000, 0.5);
+  $("#b2").delay(6000).fadeTo(2000, 0.8).fadeOut().delay(2000).fadeIn();
 });
