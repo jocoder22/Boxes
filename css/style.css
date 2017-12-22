@@ -1,10 +1,13 @@
-html; body {
+html, body {
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
 }
-
+.container, .row {
+  height: 100%;
+  width: 100%
+}
 #boxes > div {
   float: left;
   margin-right: 10px;
@@ -38,14 +41,16 @@ html; body {
 }
 
 .blueBox, .blueBox2,
-.blueBox3, .blueBox4 {
+.blueBox3, .blueBox4,
+.bluecolor {
   background-color: blue;
 }
 
-.greenBox {
+.greenBox, .greencolor {
   background-color: green;
 }
-.redBox, .red {
+.redBox, .red,
+.redcolor {
   background-color: red;
 }
 
