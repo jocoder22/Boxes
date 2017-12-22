@@ -41,12 +41,10 @@ $(function(){
 
 $(function () {
   $("#Moving").animate({
-    "margin-left" : "+=550px"
-  }, 1000, "linear");
-});
-
-$(function () {
-  $("#Moving").animate({
-    "margin-left" : "-=550px"
+    marginLeft : "+=550px",
+    "opacity" : "0",
+    "height" : "50px",
+    marginTop : "75px",
+    weight : ""
   }, 1000, "linear");
 });
