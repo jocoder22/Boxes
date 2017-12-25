@@ -40,9 +40,8 @@ html, body {
   margin-right: 0;
 }
 
-.blueBox, .blueBox2,
-.blueBox3, .blueBox4,
-.bluecolor {
+.blue,
+.blueBox {
   background-color: blue;
 }
 

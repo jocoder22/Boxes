@@ -50,7 +50,7 @@ $(function () {
 
   $("p").animate({
     fontSize: "-=20px"
-  }, 1000);
+  }, 8000);
   $("#lne").css("font-size", "0px");
 });
 
@@ -64,4 +64,46 @@ $(function () {
   });
   $("#r1").delay(2000).fadeTo(2000, 0.5);
   $("#b2").delay(6000).fadeTo(2000, 0.8).fadeOut().delay(2000).fadeIn();
+});
+
+
+
+$(function () {
+  $("p").css("background-color", "rgba(120, 180, 59, 0.8)");
+  $(".bluechange").css("background-color", "rgba(130, 70, 100, 0.8)");
+  $("#list").css("background-color", "rgba(10, 70, 70, 0.8)");
+  $("input[type='text']").css("background-color", "rgba(10, 50, 90, 0.8)");
+  $("h2, a, input[type='email']").css("background-color", "rgba(120, 190, 230, 0.8)");
+  $("p:first, li:first").css("background-color", "rgba(230, 250, 290, 0.8)");
+  $("li:last, a:first").css("background-color", "rgba(190, 70, 100, 0.8)");
+  $("li:even").css("background-color", "rgba(230, 10, 90, 0.8)");
+  $("li:odd").css("background-color", "rgba(230, 170, 200, 0.8)");
+});
+
+
+$(function () {
+  $("#order").find("li").css("background-color", "rgba(30, 20, 220, 0.8)");
+  $("#order").children("li").css("background-color", "rgba(330, 120, 220, 0.8)");
+  $("#order").parents("div").css("background-color", "rgba(5, 50, 10, 0.3)");
+  $("#order").parent("body").css("background-color", "rgba(15, 150, 110, 0.4)");
+  $("#order").siblings("header").css("background-color", "rgba(175, 170, 210, 0.4)");
+  $("#order").prev().css("background-color", "rgba(145, 250, 90, 0.4)");
+  $("#order").next().css("background-color", "rgba(215, 250, 10, 0.4)");
+});
+
+$(function () {
+  $("#match").find("li").filter(":even").css("background-color", "rgba(215, 250, 10, 0.4)");
+  $("li").filter(function (index) {
+    return index % 3 == 0;
+  }).css("background-color", "rgba(0, 0, 0, 0.4)");
+});
+
+$(function () {
+  $("li").first().css("color", "white");
+  $("li").last().css("background-color", "green");
+  $("li").eq(12).css("background-color", "green");
+  $("li").eq(-8).css("background-color", "green");
+  $("li").not(function (i) {
+    return i % 3 == 1 | i % 3 == 0;
+  }).css("background-color", "orange");
 });
