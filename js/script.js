@@ -107,3 +107,8 @@ $(function () {
     return i % 3 == 1 | i % 3 == 0;
   }).css("background-color", "orange");
 });
+
+$(function () {
+  $("div div:first").append("<h2>This is my new addition</h2>");
+
+});
