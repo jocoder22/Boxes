@@ -112,5 +112,6 @@ $(function () {
   $("div div:first").append("<h2>This is my new addition</h2>");
   $("ul ul:last").append("<li> This is the last blue red green</li>");
   $("ul ul:first").append("<li>This is the first blue red green</li>");
+  $("<div class='greenBox'> AppendTo green</div>").appendTo($("ul ul:last"));
 
 });
