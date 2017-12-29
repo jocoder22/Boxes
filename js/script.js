@@ -130,5 +130,27 @@ $(function () {
       return "grey large";
     }
   });
+  $(".dummy").removeClass("grey").addClass("white");
+});
+
+$(function () {
+  var gallery = $(".gallery");
+  var images = [
+    "images/rj.jpg",
+    "images/rj2.jpg",
+    "images/rj3.jpg",
+    "images/rj4.jpg"
+  ];
+
+  gallery.data("availableImages", images);
+  console.log(gallery.data("availableImages"));
+  gallery.data("name", "John Doe");
+  console.log(gallery.data("name"));
+  console.log(gallery.data());
+  gallery.removeData("name");
+  console.log(gallery.data("name"));
+
+  var prag = $("p:last");
+  console.log(prag.data("mydata"));
 
 });
