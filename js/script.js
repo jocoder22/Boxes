@@ -115,6 +115,20 @@ $(function () {
   $("<div class='greenBox'> AppendTo green</div>").appendTo("ul ul:last");
   $("ul ul").prepend("<div class='redBox box'> Prepend Red Box</div>");
   $("<div class='redBox box'> Prepend Red Box</div>").prependTo("p:last");
+});
 
+$(function () {
+  $("div:last").addClass("greencolor");
+  $("#changer").addClass("greencolor");
+  $("p:last").addClass("deep large");
+  $("li li").addClass(function (index) {
+    $(this).addClass("new2-" + index);
+  });
+
+  $("div").addClass(function (index, currentbox) {
+    if (currentbox == "dummy"){
+      return "grey large";
+    }
+  });
 
 });

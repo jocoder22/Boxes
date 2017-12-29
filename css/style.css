@@ -65,3 +65,16 @@ html, body {
   height: inherit;
   flex-flow: 1;
 }
+
+.large {
+  font-size: 30px;
+}
+
+.deep {
+  color: grey;
+  text-decoration: underline;
+}
+
+.grey {
+  background-color: grey;
+}
