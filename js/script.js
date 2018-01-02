@@ -162,4 +162,17 @@ $(function () {
     $(this).css('background-color', 'green');
   });
   $("#bk1").click(); // trigger the click on load
+
+  $("#bk2").hover(function () {
+    $(this).text("I was hovered");
+    $(this).css("color", "white");
+  });
+
+  var black1 = $("#bk1");
+  black1.mouseenter(function () {
+    $(this).stop().fadeTo(500, 0.7);
+  });
+  black1.mouseleave(function () {
+    $(this).stop().fadeTo(500, 1);
+  });
 });
