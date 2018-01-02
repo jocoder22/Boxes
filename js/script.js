@@ -169,10 +169,18 @@ $(function () {
   });
 
   var black1 = $("#bk1");
+  var black2 = $("#bk2");
+
   black1.mouseenter(function () {
     $(this).stop().fadeTo(500, 0.7);
   });
   black1.mouseleave(function () {
+    $(this).stop().fadeTo(500, 1);
+  });
+
+  black2.hover(function () {
+    $(this).stop().fadeTo(500, 0.7);
+  }, function () {
     $(this).stop().fadeTo(500, 1);
   });
 });
