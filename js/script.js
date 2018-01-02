@@ -154,3 +154,12 @@ $(function () {
   console.log(prag.data("mydata"));
 
 });
+
+
+//Event handler
+$(function () {
+  $("#bk1").click(function () {
+    $(this).css('background-color', 'green');
+  });
+  $("#bk1").click(); // trigger the click on load
+});
