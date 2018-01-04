@@ -60,3 +60,17 @@ var marker;
 //   drawer.classList.remove('open');
 //   //slide.style.transform = "translateX(0px)";
 // });
+
+var ViewModel = function () {
+  var self = this;
+  self.placeNames = [];
+  self.myPlaces = ko.observableArray();
+  self.myPlaces3 = ko.observableArray([]);
+
+  model.forEach(function(data) {
+    self.myPlaces3.push(data);
+    //placeNames.push(data.name.toLowerCase());
+  });
+};
+
+ko.applyBindings(new ViewModel());
