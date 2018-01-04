@@ -16,17 +16,13 @@
     </div>
 
     <div id="drawer" class="nav">
-      <ul>
-        <li>box1</li>
-        <li>box1</li>
-        <li>box1</li>
-        <li>box1</li>
-        <li>box1</li>
-        <li>box1</li>
+      <ul data-bind="foreach: myPlaces3">
+        <li data-bind="text: name"></li>
       </ul>
     </div>
     <div id="mm" class="main"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/knockout-3.2.0.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBizLop2T6ChioBI80RGcWkPEmp07RPtYI&v=3&libraries=places"></script>
     <script type="text/javascript" src="js/script2.js"></script>
     <script type="text/javascript">
@@ -34,7 +30,7 @@
     var menu = document.querySelector("#btnn");
     var main = document.querySelector(".main");
     var drawer = document.querySelector("#drawer");
-    
+
     menu.addEventListener('click', function(e) {
       drawer.classList.toggle('open');
       e.stopPropagation();
