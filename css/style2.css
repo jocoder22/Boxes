@@ -6,11 +6,24 @@
   html, body {
     height: 100%;
     width: 100%;
-
+    display: flex;
+    flex-wrap: wrap;
   }
   .row {
     width: 100%;
     margin: 0px;
+  }
+  .col2{
+    width: 20%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .col8 {
+    width: 80%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
   }
   header {
     background-color: black;
@@ -28,8 +41,6 @@
     background-color: #030716;
     padding: 0;
   }
-
-
   li {
     margin-left: 80px;
   }
@@ -95,7 +106,6 @@
       display: flex;
       -webkit-flex-flow: row wrap;
       flex-flow: row wrap;
-
     }
     #mm {
       width: auto;
