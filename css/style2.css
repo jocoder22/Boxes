@@ -52,12 +52,12 @@
   }
   .nav {
     background-color: black;
-    width: 300px;
+    width: 290px;
     height: 100%;
     position: absolute;
     -webkit-transform: translate(-300px, 0);
     transform: translate(-300px, 0);
-    transition: 1s ease;
+    transition: 0.3s ease;
   }
 
   .nav.open {
