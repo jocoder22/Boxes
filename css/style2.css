@@ -62,14 +62,10 @@
     width: 290px;
     height: 100%;
     position: absolute;
-<<<<<<< HEAD
+
     -webkit-transform: translate(-300px, 60px);
     transform: translate(-300px, 60px);
-=======
-    -webkit-transform: translate(-300px, 0);
-    transform: translate(-300px, 0);
->>>>>>> c01b95ebb752f24f12e348e26e3deae67c7c6e1f
-    transition: 0.3s ease;
+    transition: 2s ease;
   }
 
   .nav.open {
