@@ -12,6 +12,8 @@
   .row {
     width: 100%;
     margin: 0px;
+    display: flex;
+    flex-wrap: wrap;
   }
   .col2{
     width: 20%;
@@ -33,13 +35,18 @@
     display: flex;
     flex-flow: wrap;
   }
-  .hh {
+  .hhg {
     margin: 10px 20px;
     color: white;
     cursor: pointer;
     font-size: 48px;
     background-color: #030716;
     padding: 0;
+  }
+
+  #mmpp{
+    height: 100%;
+    background-color: green;
   }
   li {
     margin-left: 80px;
@@ -55,14 +62,15 @@
     width: 300px;
     height: 100%;
     position: absolute;
-    -webkit-transform: translate(-300px, 0);
-    transform: translate(-300px, 0);
-    transition: 1s ease;
+    -webkit-transform: translate(-300px, 60px);
+    transform: translate(-300px, 60px);
+    transition: 0.3s ease;
   }
 
   .nav.open {
-    -webkit-transform: translate(0, 0);
-    transform: translate(0, 0);
+    -webkit-transform: translate(0px, 60px);
+    transform: translate(0px, 60px);
+
   }
 
   span {
@@ -95,6 +103,7 @@
     background-color: #0f0e0e;
   }
 
+
   @media screen and (min-width: 600px) {
     .nav {
       position: relative;
@@ -111,8 +120,12 @@
       width: auto;
       flex-grow: 1.0;
     }
+    #mmpp {
+      width: auto;
+      flex-grow: 1;
+    }
 
-    .hh {
+    .hhg {
       display: none;
     }
     span {
