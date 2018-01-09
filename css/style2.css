@@ -59,11 +59,16 @@
   }
   .nav {
     background-color: black;
-    width: 300px;
+    width: 290px;
     height: 100%;
     position: absolute;
+<<<<<<< HEAD
     -webkit-transform: translate(-300px, 60px);
     transform: translate(-300px, 60px);
+=======
+    -webkit-transform: translate(-300px, 0);
+    transform: translate(-300px, 0);
+>>>>>>> c01b95ebb752f24f12e348e26e3deae67c7c6e1f
     transition: 0.3s ease;
   }
 
@@ -109,6 +114,7 @@
       position: relative;
       -webkit-transform: translate(0, 0);
       transform: translate(0, 0);
+      width: 20%;
     }
     body {
       display: -webkit-flex;
@@ -117,8 +123,8 @@
       flex-flow: row wrap;
     }
     #mm {
-      width: auto;
-      flex-grow: 1.0;
+      width: 80%;
+      flex-grow: 1;
     }
     #mmpp {
       width: auto;

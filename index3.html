@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta charset="utf-8">
+    <title>Responsive Web Design2</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/style3.css">
+  </head>
+  <body>
+    <div class="row">
+        <span id="btnn" class="material-icons">list</span>
+        <span class="Nb" style="text-align:center">Neighborhood Map</span>
+    </div>
+    <div class="row2">
+    <nav id="drawer" class="brown">
+      <ul>
+        <li>Go to school</li>
+        <li>Bed time</li>
+        <li>Mummy pot</li>
+        <li>Reading books</li>
+        <li>Change activity</li>
+        <li>Prepare to dinner</li>
+      </ul>
+      </nav>
+      <div id="map" class="main" ></div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      var slide = document.getElementById("mm");
+      var menu = document.querySelector("#btnn");
+      var main = document.querySelector(".main");
+      var drawer = document.querySelector("#drawer");
+      menu.addEventListener('click', function(e) {
+        drawer.classList.toggle('open');
+        e.stopPropagation();
+      });
+      main.addEventListener('click', function() {
+        drawer.classList.remove('open');
+        //slide.style.transform = "translateX(0px)";
+      });
+
+      function initMap() {
+        var uluru = {lat: 40.739037 , lng: -74.168635};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBizLop2T6ChioBI80RGcWkPEmp07RPtYI&callback=initMap">
+    </script>
+  </body>
+</html>
