@@ -86,5 +86,13 @@ html, body {
 .Abox{
   height: 100px;
   width: 100%;
-  
+}
+#transt {
+  width : 200px;
+  height: 200px;
+  transition: width 2s;
+  -webkit-transition: width 2s;
+}
+#transt:hover {
+  width: 600px;
 }
