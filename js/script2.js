@@ -51,11 +51,24 @@ var ViewModel = function () {
   self.placeNames = [];
   self.myPlaces = ko.observableArray();
   self.myPlaces3 = ko.observableArray([]);
+  self.query1 = ko.observable('');
 
   model.forEach(function(data) {
     self.myPlaces3.push(data);
-    //placeNames.push(data.name.toLowerCase());
   });
+
+  self.filterPlace = ko.computed(function () {
+    var myFilter = self.query1().toLowerCase();
+    if (!myFilter) {
+      return self.myPlaces3();
+    } else {
+      return ko.utils.arrayFilter(self.myPlaces3(), function (item) {
+        return item.name.toLowerCase().indexOf(myFilter) >=0;
+      });
+    }
+  });
+
+
 };
 
 ko.applyBindings(new ViewModel());
