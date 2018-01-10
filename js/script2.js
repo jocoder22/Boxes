@@ -48,7 +48,14 @@ var markers = [];
       infowindow.marker = marker;
       infowindow.setContent(marker.cursor);
       infowindow.open(map, marker);
+      marker.addListener('click', function(){
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+        setTimeout(function () {marker.setAnimation(null);}, 1000);
+      });
 
+      marker.addListener('mouseout', function(){
+        infowindow.close(map, marker);
+      });
 
     }
   }
