@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title></title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
     <link rel="stylesheet" href="css/style2.css">
   </head>
   <body>
@@ -15,7 +16,8 @@
       </header>
     </div>
 
-    <div id="drawer" class="nav col2">
+    <div id="drawer" class="nav col2 input-group">
+      <input type="search" class="form-control" placeholder="Filter"  data-bind="value:query1, valueUpdate: 'keyup'" autocomplete="off">
       <ul data-bind="foreach: myPlaces3">
         <li data-bind="text: name"></li>
       </ul>
