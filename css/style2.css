@@ -111,9 +111,11 @@
 
   .bb{
     margin: 20px;
-    /* border: solid black 2px;
-    border-radius: 6px;
-    width: 80%; */
+  }
+  .btn {
+    background-color: black;
+    color: white;
+    border: solid white 0.5px;
   }
 
   @media screen and (min-width: 600px) {
