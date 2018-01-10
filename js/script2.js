@@ -10,41 +10,51 @@ var model = [
   {name: "Wendy's Place", address: '427 Springfield Ave,', city: 'Newark, NJ 07103', localLocation:[{lat: 40.732158 , lng: -74.199454 }]},
   {name: 'Home Depot', address: '399-443 Springfield Ave,', city: 'Newark, NJ 07103', localLocation:[{lat: 40.731358 , lng: -74.198435 }]}];
 
-// console.log(model[0].localLocation[0]);
-// var map;
-// var marker;
-// (function initMap() {
-//   map = new google.maps.Map(document.getElementById('mm'), {
-//     center: model[0].localLocation[0],
-//     zoom: 12
-//   });
-//
-//   for (var i = 0; i < model.length; i++) {
-//     var maklocation = model[i].localLocation[0];
-//     var makaddress = model[i].address;
-//     var maktitle = model[i].name;
-//     var makcity = model[i].city;
-//     var marker = new google.maps.Marker({
-//       position: maklocation,
-//       map: map,
-//       name: maktitle,
-//       animation: google.maps.Animation.DROP,
-//       cursor: '<h4>' + maktitle + '</h4>' + makaddress + '<br>' + makcity,
-//       id: i
-//     });
-//   };
-// })();
+console.log(model[0].localLocation[0]);
+var map;
+var markers = [];
+(function initMap() {
+  map = new google.maps.Map(document.getElementById('mm'), {
+    center: model[3].localLocation[0],
+    zoom: 15
+  });
+  var bounds = new google.maps.LatLngBounds();
+  var infowindowList = new google.maps.InfoWindow();
 
-// menu.addEventListener('click', function(e) {
-//   drawer.classList.toggle('open');
-//   e.stopPropagation();
-//   //slide.style.transform = "translateX(300px)";
-// });
-//
-// main.addEventListener('click', function() {
-//   drawer.classList.remove('open');
-//   //slide.style.transform = "translateX(0px)";
-// });
+  for (var i = 0; i < model.length; i++) {
+    var maklocation = model[i].localLocation[0];
+    var makaddress = model[i].address;
+    var maktitle = model[i].name;
+    var makcity = model[i].city;
+    var marker = new google.maps.Marker({
+      position: maklocation,
+      map: map,
+      name: maktitle,
+      animation: google.maps.Animation.DROP,
+      cursor: '<h4>' + maktitle + '</h4>' + makaddress + '<br>' + makcity,
+      id: i
+    });
+    markers.push(marker);
+    bounds.extend(markers[i].position);
+    marker.addListener('mouseover', function(){
+      showInfoWindow(this, infowindowList);
+    });
+
+  };
+  map.fitBounds(bounds);
+
+  function showInfoWindow(marker, infowindow) {
+  if (infowindow.marker != marker) {
+      infowindow.marker = marker;
+      infowindow.setContent(marker.cursor);
+      infowindow.open(map, marker);
+
+
+    }
+  }
+
+})();
+
 
 var ViewModel = function () {
   var self = this;
@@ -52,10 +62,17 @@ var ViewModel = function () {
   self.myPlaces = ko.observableArray();
   self.myPlaces3 = ko.observableArray([]);
   self.query1 = ko.observable('');
+  self.allMarkers = ko.observableArray([]);
 
   model.forEach(function(data) {
     self.myPlaces3.push(data);
   });
+
+  markers.forEach(function(data) {
+    self.allMarkers.push(data);
+  });
+
+ console.log(self.allMarkers()[1]);
 
   self.filterPlace = ko.computed(function () {
     var myFilter = self.query1().toLowerCase();
@@ -68,6 +85,11 @@ var ViewModel = function () {
     }
   });
 
+  // self.bounceMarker = function(marker){
+  //   self.allMarkers().id == marker;
+  //   marker.setAnimation(google.maps.Animation.BOUNCE);
+  //   setTimeout(function () {marker.setAnimation(null);}, 1000);
+  // };
 
 };
 
