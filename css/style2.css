@@ -49,9 +49,10 @@
     height: 100%;
     background-color: green;
   }
-  li {
+  /* li {
     margin-left: 80px;
-  }
+    font-size: 10px;
+  } */
 
   .main {
     width: 100%;
@@ -91,7 +92,7 @@
     padding: 20px 0px;
     margin: 0;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 15px;
     font-weight: bold;
     color: #7a7c7f;
     border-bottom: 0.5px solid #fff;
@@ -115,7 +116,7 @@
   .btn {
     background-color: black;
     color: white;
-    border: solid white 0.5px;
+    border: solid white 1px;
   }
 
   @media screen and (min-width: 600px) {
