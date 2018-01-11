@@ -142,9 +142,9 @@ var ViewModel = function () {
   self.filterPlace = ko.computed(function () {
     var myFilter = self.query1().toLowerCase();
     if (!myFilter) {
-      return self.myPlaces();
+      return self.myPlaces3();
     } else {
-      return ko.utils.arrayFilter(self.myPlaces(), function (item) {
+      return ko.utils.arrayFilter(self.myPlaces3(), function (item) {
         return item.name.toLowerCase().indexOf(myFilter) >=0;
       });
     }
