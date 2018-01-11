@@ -1,5 +1,49 @@
 
 
+
+//make AJAX call to foursquare API
+var result = function(){
+  var AllPlaces = [];
+  var myAddress = '383 Springfield Ave, Newark NJ 07103';
+  var foursquareUrl2 = 'https://api.foursquare.com/v2/venues/search?limit=80&near=' + myAddress + '&client_id=RMJLP0XC1CPMPOE4IINGN4RSBFUVTP10D1N0OO0RLBCCNPFK&client_secret=2OAXA5CSE43HQRNUYEEFV2FYR3SLB3CHVN0FCLXEGIUVCUUP&v=20170801'
+
+  $.getJSON(foursquareUrl2, function(data){
+    format: 'json'
+  }).done(function(data){
+    var resultParsed = data.response.venues;
+    for (var i = 0; i < resultParsed.length; i++) {
+      var resp = resultParsed[i]; var llresp = resp.location;
+      if (resp.contact.formattedPhone && resp.name != "CityPlex 12 Newark") {
+        AllPlaces.push({
+          name: resp.name,
+          Address: llresp.formattedAddress,
+          Phone: resp.contact.formattedPhone,
+          stats: resp.stats,
+          lat: llresp.lat,
+          lng: llresp.lng,
+          latlng:[{lat: llresp.lat, lng: llresp.lng}],
+          url: resp.url});
+      }
+    }
+  }).fail(function(xhr, errorType, exception) {
+    alert( xhr.status + " " + errorType+"\n\ " + exception);
+  });
+  return AllPlaces;
+};
+
+console.log('outside calls');
+console.log('outside calls');
+console.log(result);
+var mayy = result();
+console.log(mayy);
+
+
+
+
+
+
+
+
 var model = [
   {name: 'Robert Treat Center', address: '50 Park Pl,', city: 'Newark, NJ 07102', localLocation:[{lat: 40.739037 , lng: -74.168635}]},
   {name: 'Newark Museum', address: '49 Washington St,', city: 'Newark, NJ 07102', localLocation:[{lat: 40.743108 , lng: -74.171716}]},
@@ -66,10 +110,19 @@ var markers = [];
 var ViewModel = function () {
   var self = this;
   self.placeNames = [];
-  self.myPlaces = ko.observableArray();
+  self.myPlaces = ko.observableArray([]);
   self.myPlaces3 = ko.observableArray([]);
   self.query1 = ko.observable('');
   self.allMarkers = ko.observableArray([]);
+
+
+
+
+
+
+
+
+
 
   model.forEach(function(data) {
     self.myPlaces3.push(data);
@@ -79,14 +132,19 @@ var ViewModel = function () {
     self.allMarkers.push(data);
   });
 
+
+
+
  console.log(self.allMarkers()[1]);
+ console.log(self.myPlaces()[1]);
+
 
   self.filterPlace = ko.computed(function () {
     var myFilter = self.query1().toLowerCase();
     if (!myFilter) {
-      return self.myPlaces3();
+      return self.myPlaces();
     } else {
-      return ko.utils.arrayFilter(self.myPlaces3(), function (item) {
+      return ko.utils.arrayFilter(self.myPlaces(), function (item) {
         return item.name.toLowerCase().indexOf(myFilter) >=0;
       });
     }
