@@ -98,10 +98,9 @@ setTimeout (function() {
 
 var ViewModel = function () {
   var self = this;
-  self.placeNames = [];
   self.myPlaces = ko.observableArray([]);
   self.query1 = ko.observable('');
-  self.allMarkers = ko.observableArray([]);
+
   setTimeout(function() {
     result.forEach(function(item){
       self.myPlaces.push(item);
