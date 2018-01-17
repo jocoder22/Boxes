@@ -19,9 +19,6 @@ def question1(s, t):
 Efficiency: speed and memory space = O(1)
 
 
-
-
-
 Question 2
 Given a string a, find the longest palindromic substring contained in a. Your function definition should look like question2(a), and return a string.
 
@@ -38,6 +35,8 @@ def question2(a):
         print 'No palindrome found in {}'.format(a)
     else:
         return max(palindromes, key=len)
+
+Efficiency: speed O(n^2) and space O(1)
 
 Question 3
 Given an undirected graph G, find the minimum spanning tree within G. A minimum spanning tree connects all vertices in a graph with the smallest possible total weight of edges. Your function should take in and return an adjacency list structured like this:
@@ -67,3 +66,59 @@ class Node(object):
   def __init__(self, data):
     self.data = data
     self.next = None
+
+class linkedList(object):
+    """docstring for linkedList."""
+    def __init__(self, head=None):
+        self.head = head
+
+    def append(self, new_node):
+        current = self.head
+        if self.head:
+            while current.next:
+                current = current.next
+            current.next =  new_node
+        else:
+            current = new_node
+
+
+def question5(ll, m):
+    try:
+
+        if (ll and m == None or m == 0):
+            return "Either the first node or the mth number is not given"
+
+        head_position = ll
+        mth_position = ll
+        if True:
+            for index in range(0, m):
+                head_position = head_position.next
+            while head_position != None:
+                head_position = head_position.next
+                mth_position = mth_position.next
+            return mth_position.data
+
+    except:
+        return "error in executing function"
+
+Node1 = Node(340)
+Node2 = Node(900)
+Node3 = Node(870)
+Node5 = Node(609)
+Node6 = Node(870)
+Node7 = Node(912)
+Node8 = Node(614)
+
+myLinked = linkedList(Node1)
+myLinked.append(Node8)
+myLinked.append(Node7)
+myLinked.append(Node5)
+myLinked.append(Node3)
+myLinked.append(Node2)
+myLinked.append(Node6)
+
+
+print question5(Node1, 4)
+print question5(Node1, 5)
+print question5(Node1, 2)
+print question5(Node1, 1)
