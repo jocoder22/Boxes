@@ -68,7 +68,13 @@ def question4(T, r, n1, n2):
     else:
         print 'Node {} and Node {} do not have common ancestor'.format(n1, n2)
 
-
+def findRelationship(ls):
+    relationshipList []
+    for rows in ls:
+        for i, j in enumerate(rows):
+            if j == 1:
+                relationshipList.append(i)
+    return relationshipList
 
 
 
