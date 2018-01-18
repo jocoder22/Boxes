@@ -60,11 +60,15 @@ question4([[0, 1, 0, 0, 0],
 and the answer would be 3.
 
 Class Node(object):
-    def __init__(self, vale):
+    def __init__(self, value):
         self.value = value
         self.right = None
         self.left = None
-        
+
+    def addNode(self, node, new_val, side):
+        new_Node = Node(new_val)
+        node.side = new_Node
+
 
 
 
