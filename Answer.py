@@ -59,6 +59,15 @@ question4([[0, 1, 0, 0, 0],
           4)
 and the answer would be 3.
 
+Class Node(object):
+    def __init__(self, vale):
+        self.value = value
+        self.right = None
+        self.left = None
+        
+
+
+
 
 def question4(T, r, n1, n2):
     relation = findRelationship(T)
