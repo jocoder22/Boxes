@@ -68,7 +68,13 @@ class Node(object):
 class BST(object):
     """docstring for BST."""
     def __init__(self, root):
-        self.root = root
+        self.root = Node(root)
+
+    def insertNode(self, node, value, side):
+        self.root = node
+        if node.side == None:
+            node.side = Node(value)
+
 
 
 
