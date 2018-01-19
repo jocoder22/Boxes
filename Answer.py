@@ -75,6 +75,24 @@ def union(vertice0, vertice1): # NOTE: Does union of two sets
         parent[root0] = root1
         ranking[root1] += 1
 
+# NOTE: thi function perform the minimum spanning tree within a graph: connecting all vertices in the graph with the smallest possible total weight of edges using krustal algorithm
+
+def krustalAlgorith(vertices, edges):
+    min_span_tree = set()
+    for vertice in vertices:
+        mySets(vertice)
+
+    # NOTE: sort the sets by weights ascending order
+    edges = sorted(edges, key = lambda x: x[2])
+
+    for edge in edges:
+        vertice0, vertice1, weight = edge
+        if find(vertice0) != find(vertice1):
+            union(vertice0, vertice1)
+            min_span_tree.add(edge)
+
+    return min_span_tree
+
 
 
 
