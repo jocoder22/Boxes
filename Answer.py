@@ -75,9 +75,9 @@ def union(vertice0, vertice1): # NOTE: Does union of two sets
         parent[root0] = root1
         ranking[root1] += 1
 
-# NOTE: thi function perform the minimum spanning tree within a graph: connecting all vertices in the graph with the smallest possible total weight of edges using krustal algorithm
+# NOTE: thi function perform the minimum spanning tree within a graph: connecting all vertices in the graph with the smallest possible total weight of edges using krustal Algorithm
 
-def krustalAlgorith(vertices, edges):
+def krustalAlgorithm(vertices, edges):
     min_span_tree = set()
     for vertice in vertices:
         mySets(vertice)
@@ -92,6 +92,37 @@ def krustalAlgorith(vertices, edges):
             min_span_tree.add(edge)
 
     return min_span_tree
+
+def compareTraverse(fN, tN, n):
+    if Tn < fN:
+        fN = n[1]
+        tN = n[0]
+
+def question3(G):
+    grah = G
+    vertices = []
+    edges = []
+
+    # NOTE: given a graph, get all the vertices and edges
+    for vertice in graph.key():
+        vertices.append(vertice)
+        edgeVertices = graph[vertice]
+        for oneEdge in edgeVertices:
+            fromNode = vertice
+            toNode, weight = oneEdge
+            edges.append((fromNode, toNode, weight))
+
+    # NOTE: Now we have our vertices and edges, it is time for krustal Algorithm
+    mst = krustalAlgorithm(vertices, edges)
+
+    # NOTE: format result as required
+    result = {}
+    for node in mst:
+        fnode, tnode, wt = node
+        fnode, tnode = compareTraverse(fnode, tnode, node)
+        result[fnode].append((tnode, wt))
+
+    return result 
 
 
 
