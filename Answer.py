@@ -62,7 +62,18 @@ def find(vertice): # NOTE: find the set of the n, the vertices
     else:
         parent[vertice] = find(parent[vertice])
 
+def union(vertice0, vertice1): # NOTE: Does union of two sets
+    root0 = find(vertice0)
+    root1 = find(vertice1)
 
+    # NOTE: place lower ranked tree under a higher ranked Tree
+    if ranking[root0] < ranking[root1]:
+        parent[root0] = root1
+    elif ranking[root0] > ranking[root1]:
+        parent[root1] = root0
+    else:
+        parent[root0] = root1
+        ranking[root1] += 1
 
 
 
