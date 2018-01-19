@@ -56,6 +56,13 @@ def mySets(vertice):
     parent[vertice] = vertice
     ranking[vertice] = 0
 
+def find(vertice): # NOTE: find the set of the n, the vertices
+    if parent[vertice] == vertice:
+        return parent[vertice]
+    else:
+        parent[vertice] = find(parent[vertice])
+
+
 
 
 
