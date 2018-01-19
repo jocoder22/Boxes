@@ -142,6 +142,29 @@ question4([[0, 1, 0, 0, 0],
           4)
 and the answer would be 3.
 
+class Node(object):
+    def __init__(self, value):
+        self.value = value
+        self.right = None
+        self.left = None
+
+class BST(object):
+    """docstring for BST."""
+    def __init__(self, root):
+        self.root = Node(root)
+
+    def insertNode(self, node, value, side):
+        self.root = node
+        if node.side == None:
+            node.side = Node(value)
+
+
+
+
+
+
+
+
 
 def question4(T, r, n1, n2):
     relation = findRelationship(T)
