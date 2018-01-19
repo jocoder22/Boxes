@@ -58,23 +58,22 @@ def mySets(vertice):
     ranking[vertice] = 0
 
 def find(vertice): # NOTE: find the set of the n, the vertices
-    if parent[vertice] == vertice:
-        return parent[vertice]
-    else:
+    if parent[vertice] != vertice:
         parent[vertice] = find(parent[vertice])
+
+    return parent[vertice]
 
 def union(vertice0, vertice1): # NOTE: Does union of two sets
     root0 = find(vertice0)
     root1 = find(vertice1)
 
-    # NOTE: place lower ranked tree under a higher ranked Tree
-    if ranking[root0] < ranking[root1]:
-        parent[root0] = root1
-    elif ranking[root0] > ranking[root1]:
-        parent[root1] = root0
-    else:
-        parent[root0] = root1
-        ranking[root1] += 1
+    # NOTE: place lower ranked node under a higher ranked node
+    if root0 != root1:
+        if ranking[root0] > ranking[root1]:
+            parent[root1] = root0
+        else:
+            parent[root0] = root1
+            if ranking[root1] == ranking[root0]: ranking[root1] += 1
 
 # NOTE: this function perform the minimum spanning tree within a graph: connecting all vertices in the graph with the smallest possible total weight of edges using krustal Algorithm
 
@@ -94,10 +93,11 @@ def krustalAlgorithm(vertices, edges):
 
     return min_span_tree
 
-def compareTraverse(fN, tN, n):
-    if Tn < fN:
+def compareNodes(fN, tN, n):
+    if tN < fN:
         fN = n[1]
         tN = n[0]
+    return fN, tN
 
 def question3(G):
     graph = G
@@ -119,9 +119,12 @@ def question3(G):
     # NOTE: format result as required
     result = {}
     for node in mst:
-        fnode, tnode, wt = node
-        fnode, tnode = compareTraverse(fnode, tnode, node)
-        result[fnode].append((tnode, wt))
+        fnodep, tnodep, wt = node
+        fnode, tnode = compareNodes(fnodep, tnodep, node)
+        if fnode in result:
+            result[fnode].append((tnode, wt))
+        else:
+            result[fnode] = [(tnode, wt)]
 
     return result
 
