@@ -49,6 +49,7 @@ Vertices are represented as unique strings. The function definition should be qu
 # I using Tree based disjoint set union() and find()
 # Union() = O(1), while find() = 0(n) where n is the depth
 
+from operator import itemgetter
 parent = {}
 ranking = {}
 
@@ -75,7 +76,7 @@ def union(vertice0, vertice1): # NOTE: Does union of two sets
         parent[root0] = root1
         ranking[root1] += 1
 
-# NOTE: thi function perform the minimum spanning tree within a graph: connecting all vertices in the graph with the smallest possible total weight of edges using krustal Algorithm
+# NOTE: this function perform the minimum spanning tree within a graph: connecting all vertices in the graph with the smallest possible total weight of edges using krustal Algorithm
 
 def krustalAlgorithm(vertices, edges):
     min_span_tree = set()
@@ -83,7 +84,7 @@ def krustalAlgorithm(vertices, edges):
         mySets(vertice)
 
     # NOTE: sort the sets by weights ascending order
-    edges = sorted(edges, key = lambda x: x[2])
+    edges = sorted(edges, key = itemgetter(2))
 
     for edge in edges:
         vertice0, vertice1, weight = edge
@@ -99,12 +100,12 @@ def compareTraverse(fN, tN, n):
         tN = n[0]
 
 def question3(G):
-    grah = G
+    graph = G
     vertices = []
     edges = []
 
     # NOTE: given a graph, get all the vertices and edges
-    for vertice in graph.key():
+    for vertice in graph.keys():
         vertices.append(vertice)
         edgeVertices = graph[vertice]
         for oneEdge in edgeVertices:
