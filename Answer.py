@@ -60,7 +60,6 @@ def mySets(vertice):
 def find(vertice): # NOTE: find the set of the n, the vertices
     if parent[vertice] != vertice:
         parent[vertice] = find(parent[vertice])
-
     return parent[vertice]
 
 def union(vertice0, vertice1): # NOTE: Does union of two sets
@@ -94,10 +93,8 @@ def krustalAlgorithm(vertices, edges):
     return min_span_tree
 
 def compareNodes(fN, tN, n):
-    if tN < fN:
-        fN = n[1]
-        tN = n[0]
-    return fN, tN
+    if tN < fN: return tN, fN
+    else: return fN, tN
 
 def question3(G):
     graph = G
@@ -164,28 +161,6 @@ question4([[0, 1, 0, 0, 0],
           1,
           4)
 and the answer would be 3.
-
-class Node(object):
-    def __init__(self, value):
-        self.value = value
-        self.right = None
-        self.left = None
-
-class BST(object):
-    """docstring for BST."""
-    def __init__(self, root):
-        self.root = Node(root)
-
-    def insertNode(self, node, value, side):
-        self.root = node
-        if node.side == None:
-            node.side = Node(value)
-
-
-
-
-
-
 
 
 
